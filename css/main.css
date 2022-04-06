@@ -1,0 +1,304 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'starWarsFont';
+    src: url(/font/Starjedi.ttf);
+}
+
+body{
+    background: #2c2c2c;
+}
+/*INDEX LAYOUT SECTION*/
+
+.grid-container-main{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "intro"
+    "footer";
+    grid-template-rows: 100px 1fr 70px ;
+    grid-template-columns: auto;
+    height: 100vh;
+    margin: 0;
+}
+
+section#intro{
+    grid-area: intro;
+    z-index: -1;
+    background-color:#2c2c2c;
+}
+.intro-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 20px;
+    grid-gap: 10px;
+    margin: 2%;
+
+}
+
+.intro__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15%;
+}
+
+.intro__item__text{
+    background-image: url(/img/navbackground.jpg);
+    color: white;
+    border-radius: 15%;
+    padding: 25px;
+    font-family: 'Merriweather', serif;
+}
+.intro__item__text h2{
+    text-align: center;
+    font-size: 2rem;
+}
+.intro__item{
+    position: relative;
+}
+.h2__ig{
+    text-decoration: none;
+    color: orange;
+}
+
+
+
+/*TERMINA EL INDEX SECTION*/
+/*TODO HEADER Y NAV*/
+header{
+    position: sticky;
+    top: 0;
+    grid-area: header;
+    z-index: 0;
+}
+.nav{
+    background-color: orange;
+    height: 100px;
+    font-family: 'starWarsFont';
+    letter-spacing: 2px;
+    background-image: url(/img/navbackground.jpg);
+}
+.nav__logo{
+    display: flex;
+}
+.nav__logo h2{
+    align-self: center;
+    margin-left: 5px;
+    margin-right: 20px;
+    color: orange;
+}
+.nav__logo img{
+    height: 100px;
+    width: 100px;
+}
+
+.nav__container{
+    display: flex;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__menu{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 3rem;
+}
+.nav__menu a{
+    text-decoration: none;
+    color: orange;
+    transition: all 0.5s ease;
+}
+.nav__menu a:hover{
+    padding: 5px 10px;
+    background: orange;
+    color: black;
+    border-radius: 15px;
+}
+.nav__label{
+    color: orange;
+}
+.nav__label, .nav__input{
+    display: none;
+}
+
+/*ARRANCA EL FOOTER*/
+footer{
+    background-image: url(/img/navbackground.jpg);
+    display: flex;
+    width: 100%;
+    border-top: #2c2c2c 1px solid;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.1rem;
+    color: orange;
+    font-family:"starWarsFont";
+}
+
+.footer__redes a{
+    color: orange;
+    letter-spacing: 20px;
+}
+/*EMPIEZO LA CONFIG DE LA GALERIA*/
+.grid-container-gallery{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "galeria"
+    "footer";
+    grid-template-rows: 100px 1fr 70px ;
+    grid-template-columns: auto;
+    height: 100vh;
+    margin: 0;
+}
+
+section#galeria{
+    grid-area: galeria;
+    z-index: -1;
+    background-color:#2c2c2c;
+}
+.gallery-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 10px;
+    grid-gap: 10px;
+
+}
+
+.gallery__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery__item{
+    position: relative;
+}
+
+.gallery__title{
+    position: absolute;
+    bottom: 0;
+    color: rgb(34, 33, 33);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    background: linear-gradient(rgba(250, 173, 5, 0.7), rgb(48, 45, 45))
+}
+/*TERMINA LA GALERIA*/
+footer{
+    grid-area: footer;
+}
+/*-------------------------------------------*/
+/*ARRANCA EL FORMULARIO--------*/
+.form{
+    background: orange;
+    position: absolute;
+}
+
+/*--------------------------*/
+/*REVIEW*/
+.review{
+    display:flex;
+    width: 100%;
+    justify-content: center;
+    height: 100vh;
+}
+.review__img img{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+/*--------------------------------*/
+/*----NOVEDADES-------------*/
+.news{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+.news__img img{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+.news__text{
+    color: wheat;
+}
+/*------------------------------*/
+/*ARRANCAN LOS MEDIA QUERIES*/
+
+@media (max-width: 1024px){
+    header{
+        position: fixed;
+        width: 100%;
+    }
+    .review{
+        flex-direction: column;
+    }
+    .news{
+        flex-direction: column;
+    }
+    .nav__label{
+        display: block;
+        cursor: pointer;
+    }
+    .main-container{
+        margin-top: 100px;
+    }
+    .nav__menu{
+        position: fixed;
+        top: 100px;
+        bottom: 0;
+        background-image: url(/img/navbackground.jpg);
+        width: 100%;
+        left: 0;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        clip-path: circle(0 at center);
+        transition: clip-path 1s ease-in-out;
+    }
+
+    .nav__input:checked + .nav__menu{
+        clip-path: circle(100% at center);
+    }
+    .intro-container{
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+
+    .gallery-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+}
+
+
+@media (max-width: 480px){
+    .nav__logo h2{
+        display: none;
+        
+    }   
+
+    .gallery-container{
+        grid-template-columns: repeat(1,1fr) ;
+    }
+   
+}
+@media (min-width:1024px){
+    footer{
+        font-size: 1.4rem;
+    }
+    header{
+        position: fixed;
+        width: 100%;
+    }
+
+}
